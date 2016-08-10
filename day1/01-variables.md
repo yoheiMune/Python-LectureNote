@@ -1,6 +1,6 @@
 このページではPythonの変数定義と型変換について説明します。  
-
-
+<br>
+<br>
 # 変数の定義
 変数の定義は、以下のように行い、`type`を用いることで型を調べることができます。  
 ## 文字列
@@ -27,7 +27,6 @@ print(type(chars)) # <class ‘list’>
 my_range = range(0, 10)
 print(type(my_range)) # <class ‘range’>
 ```
-<br />
 <br />
 <br />
 # 変数の型変換
