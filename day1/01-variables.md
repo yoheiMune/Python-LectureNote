@@ -3,20 +3,20 @@
 
 # 変数の定義
 変数の定義は、以下のように行い、`type`を用いることで型を調べることができます。  
-**文字列**
+## 文字列
 ```
 my_name = "Yohei Munesada"
 print(my_name)
 print(type(my_name))  # <class 'str'>
 ```
-# 数値の場合
+## 数値の場合
+```
 age = 30
-print(age)
 print(type(age))  # <class 'int'>
 
-# 数値の場合
 load_average = 0.65
 print(type(load_average)) # <class 'float'>
+```
 
 
 chars = [“A”, “B”, “C”]
