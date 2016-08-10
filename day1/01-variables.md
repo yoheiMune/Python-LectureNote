@@ -17,16 +17,17 @@ print(type(age)) # <class 'int'>
 load_average = 0.65
 print(type(load_average)) # <class 'float'>
 ```
-# リスト
+## リスト
 ```
 chars = [“A”, “B”, “C”]
 print(type(chars)) # <class ‘list’>
 ```
-# Range
+## Range
 ```
 my_range = range(0, 10)
 print(type(my_range)) # <class ‘range’>
 ```
+
 
 
 # 変数の型変換
