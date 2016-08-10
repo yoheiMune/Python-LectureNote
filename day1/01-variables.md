@@ -27,9 +27,9 @@ print(type(chars)) # <class ‘list’>
 my_range = range(0, 10)
 print(type(my_range)) # <class ‘range’>
 ```
-
-
-
+<br />
+<br />
+<br />
 # 変数の型変換
 異なる型同士で結合したり比較する場合には、型変換が必要です。  
 ## 異なる型同士を結合するとエラー
