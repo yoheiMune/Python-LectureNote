@@ -53,3 +53,20 @@ num = 10
 for num >= 5:
   num -= 1
 ```
+<br>
+<br>
+# passによる空行の主張
+Pythonではコードブロックをインデントで表現しますが、以下のようにコードブロックに何もない場合はエラーとなります。
+```
+if name == "Yohei":
+
+```
+エラー内容は以下です。
+```
+IndentationError: expected an indented block
+```
+何も実装しないコードブロックを用意する場合、`pass`を記述することでエラーを回避できます。
+```
+if name == "Yohei":
+  pass
+```
