@@ -54,20 +54,3 @@ with urllib.request.urlopen("http://www.yoheim.net") as res:
 # さらに詳しく
 以下のブログにもう少し詳しく記載していますので参考になれば。
  * [[Python] HTTP通信でGetやPostを行う](http://www.yoheim.net/blog.php?q=20160204)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
