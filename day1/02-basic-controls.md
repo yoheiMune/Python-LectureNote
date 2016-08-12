@@ -23,6 +23,12 @@ if name == "Mizuno" and age == 32:
 elif name == "Kobayashi" or age = 30:
   print("Normal")
 ```
+## if文と代入
+以下のようにif文を用いて三項演算子のような実装を行うことができます。人によっては「直感的な実装だ」と言います（僕はそっち派です）。
+```
+age = 29
+judge = "young" if age < 30 else "elder"
+```
 <br>
 # for文
 指定回数や要素数分の処理を行います。
