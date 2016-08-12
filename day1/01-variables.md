@@ -8,6 +8,18 @@ my_name = "Yohei Munesada"
 print(my_name)
 print(type(my_name)) # <class 'str'>
 ```
+またPythonではヒアドキュメントという複数行の文字列も対応しています。
+```
+sql = """
+    SELECT
+        *
+    FROM
+        user
+    WHERE
+        status_code = 1
+        AND age = 30
+"""
+```
 ## 数値
 ```
 age = 30
