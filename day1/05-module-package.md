@@ -43,18 +43,18 @@ genius = get_genius()
    - my_module2.py
 <br>
 mypackage以下のそれぞれのモジュールは以下の関数が定義されていることとしましょう。
-```
+```python
 # my_module1.py
 def get_genius():
   return "Yamazaki"
 ```
-```
+```python
 # my_module2.py
 def get_best_staff():
   return "Kuribayashi"
 ```
 それらモジュールを`main.py`から用いる場合には、以下のように行います。
-```
+```python
 # main.py
 import mypackage.my_module1
 import mypackage.my_module2
@@ -63,12 +63,12 @@ genius = mypackage.my_module1.get_genius()
 staff = mypackage.my_module2.get_best_staff()
 ```
 また上述のモジュールと同じく、インポートの方法はいろいろとあります。
-```
+```python
 # エイリアスを用いる
 import mypackage.my_module1 as mm1
 import mypackage.my_module2 as mm1
 ```
-```
+```python
 # fromを用いる
 from mypackage import my_module1
 from mypackage import my_module2
@@ -79,7 +79,7 @@ from mypackage import my_module1, my_module2
 <br>
 # \_\_main\_\_の処理
 Pythonでは（モジュールとしてではなく）メインのプログラムとして呼び出された場合にのみ実行されるコードを書くことができます。
-```
+```python
 # my_module1.pyの例
 
 # モジュールとして提供する関数

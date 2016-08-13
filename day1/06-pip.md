@@ -48,17 +48,3 @@ $ pip help
 # pip [コマンド名] help
 pip install help # インストールコマンドのヘルプ
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-

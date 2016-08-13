@@ -2,20 +2,20 @@
 <br>
 # 利用するモジュール
 標準で組み込まれている以下のモジュールを利用します。
-```
+```python
 import urllib.request
 ```
 <br>
 # 基本的な使い方
 `urllib.request`モジュールを用いることで2行でHTTP通信を行うことができます。
-```
+```python
 res = urllib.request.urlopen("http://www.yoheim.net")
 html = res.read().decode("utf-8")
 ```
 これでYoheiM.NETのトップページからHTMLを取得できました。
 # GETパラメータをつける
 上記の実装に加え、以下のように実装することでGETパラメータを付与することができます。
-```
+```python
 import urllib.request
 import urllib.parse
 data = {
@@ -29,7 +29,7 @@ html = res.read().decode("utf-8")
 ```
 # POST通信を行う
 今まではGET通信でしたが、以下のように実装することでPOST通信を行うことができます。
-```
+```python
 import urllib.request
 import urllib.parse
 data = {
@@ -46,7 +46,7 @@ html = res.read().decode("utf-8")
 <br>
 # withキーワードを用いたリソース管理
 `with`を用いることでコードブロックの処理が終わった場合に、自動的にリソースをクローズしてくれます。
-```
+```python
 with urllib.request.urlopen("http://www.yoheim.net") as res:
    html = res.read().decode("utf-8")
 ```
