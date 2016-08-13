@@ -19,12 +19,14 @@ html = res.read().decode("utf-8")
 ```python
 import urllib.request
 import urllib.parse
+
 data = {
     "name": "Yohei",
     "age": 32
 }
 p = urllib.parse.urlencode(data)
 url = "http://www.yoheim.net/?" + p
+
 res = urllib.request.urlopen(url)
 html = res.read().decode("utf-8")
 ```
@@ -34,13 +36,14 @@ html = res.read().decode("utf-8")
 ```python
 import urllib.request
 import urllib.parse
+
 data = {
     "name": "yohei",
     "age": 30,
     "comment": "あああ"
 }
-# ここでエンコードして文字→バイトにする！
 data = urllib.parse.urlencode(data).encode("utf-8")
+
 res = urllib.request.urlopen("http://www.yoheim.net/", data=data)
 html = res.read().decode("utf-8")
 ```
@@ -54,5 +57,5 @@ with urllib.request.urlopen("http://www.yoheim.net") as res:
 ```
 <br>
 # さらに詳しく
-以下のブログにもう少し詳しく記載していますので参考になれば。
+以下のブログでもう少し詳しくPythonによるHTTP通信を説明しています。
  * [[Python] HTTP通信でGetやPostを行う](http://www.yoheim.net/blog.php?q=20160204)

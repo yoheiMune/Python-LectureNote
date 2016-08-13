@@ -1,4 +1,4 @@
-このページでは、Pythonのモジュールとパッケージについて説明します。
+このページでは、Pythonのモジュールとパッケージについて説明します。  
 <br>
 # モジュール
 ## モジュールとは
@@ -7,7 +7,7 @@
 以下2つのファイルがあると想定して話を進めます。
  - (ルート)
   - main.py（メインで起動するもの）  
-  - my_module.py （モジュール）
+  - my_module.py （モジュール）  
 <br>
 モジュールは以下の関数が定義されているとします。
 ```python
@@ -15,7 +15,7 @@
 def get_genius():
   return ["Yamazaki", "Kosuge"]
 ```
-この場合に`main.py`から`my_module.py`を以下のように利用します。
+この場合に`main.py`から`my_module.py`を以下のように呼び出すことができます。
 ```python
 import my_module
 genius = my_module.get_genius()
@@ -25,7 +25,7 @@ genius = my_module.get_genius()
 import my_module as mm
 genius = mm.get_genius()
 ```
-また、`from`と合わせて使うことで以下のようにインポートすることも可能です。
+また、`from`を使って、以下のようにインポートすることも可能です。
 ```python
 from my_module import get_genius
 genius = get_genius()
@@ -34,13 +34,13 @@ genius = get_genius()
 # パッケージ
 パッケージは複数のモジュールを1つにまとめたものです。
 ## パッケージの実装例
-以下のディレクトリ構成を想定しています。パッケージのディレクトリの中には`__init__.py`ファイルを置き、このディレクトリがPythonのパッケージであることを示します。
- - (ルート)
-  - main.py（メインで起動するもの）  
-  - mypackage
-   - \_\_init\_\_.py（空ファイルで良いが必須）
-   - my_module1.py
-   - my_module2.py
+以下のディレクトリ構成があるとしましょう。パッケージのディレクトリの中には`__init__.py`ファイルを置き、このディレクトリがPythonのパッケージであることを示します。
+* (ルート)
+    * main.py（メインで起動するもの）  
+    * mypackage
+        * \_\_init\_\_.py（空ファイルで良いが必須）
+        * my_module1.py
+        * my_module2.py
 <br>
 mypackage以下のそれぞれのモジュールは以下の関数が定義されていることとしましょう。
 ```python
