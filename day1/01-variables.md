@@ -1,14 +1,14 @@
-このページではPythonの変数定義と型変換について説明します。
+このページでは、Pythonの変数定義と型変換について説明します。
 <br>
 # 変数の定義
-変数の定義は、以下のように行い、`type`を用いることで型を調べることができます。  
+変数の定義は以下のように行い、`type`を用いることで型を調べることができます。  
 ## 文字列
 ```python
 my_name = "Yohei Munesada"
 print(my_name)
 print(type(my_name)) # <class 'str'>
 ```
-またPythonではヒアドキュメントという複数行の文字列も対応しています。
+またPythonでは、ヒアドキュメントという複数行の文字列も対応しています。
 ```python
 sql = """
     SELECT
@@ -64,7 +64,7 @@ ok = age1 <= border
 #   File "<stdin>", line 1, in <module>
 # TypeError: unorderable types: int() <= str()
 ```
-## 異なる型を結合する場合にも、型変換が必要
+## 異なる型を結合する場合にも、型変換が必要です
 ```python
 ok = age1 <= int(border)
 ```

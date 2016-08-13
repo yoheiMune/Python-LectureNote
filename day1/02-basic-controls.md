@@ -1,7 +1,7 @@
-このページではPythonの基本文法について説明します。
+このページでは、Pythonの基本文法について説明します。
 <br>
 # if文
-条件によって分岐して処理を行います。
+条件によって処理を分岐します。
 ## 基本形
 `if`と`elif`と`else`を利用します。
 ```python
@@ -9,10 +9,10 @@ if name == "Yohei":
   print("Good")
 
 elif name == "Yosuke":
-  print("Normal")
+  print("Super Good")
 
 else:
-  print("Bad")
+  print("Excellent")
 ```
 ## 複数の条件の組み合わせ
 複数の条件を組み合わせる場合には`and`や`or`を使います。
@@ -24,14 +24,14 @@ elif name == "Kobayashi" or age = 30:
   print("Normal")
 ```
 ## if文と代入
-以下のようにif文を用いて三項演算子のような実装を行うことができます。人によっては「直感的な実装だ」と言います（僕はそっち派です）。
+以下のようにif文を用いて三項演算子のような実装を行うことができます。人によっては「直感的な実装だ」と言います。
 ```python
 age = 29
 judge = "young" if age < 30 else "elder"
 ```
 <br>
 # for文
-指定回数や要素数分の処理を行います。
+指定した回数処理したり、要素を1つずつ処理することができます。
 ## 指定回数処理を行う
 `range`を用いることで指定回数の処理が行えます。
 ```python
