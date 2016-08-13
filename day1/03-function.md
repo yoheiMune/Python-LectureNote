@@ -48,9 +48,9 @@ def get_message(name, age=20):
 message = get_message("Yohei")
 message = get_message(name="Yohei")
 ```
-とこんな感じで便利です。
+とこんな感じで便利です。  
 <br>
-# 値の返却の便利な使い方
+# 値返却の便利な使い方
 ## 複数の値を返却する
 後続の`tuple`というデータ型で関数の戻り値を表現することで、複数の値を返却することができます。以下のように定義します。
 ```python
@@ -61,6 +61,6 @@ name, age = my_function()
 ```
 <br>
 # 他にも
-ちょっと高度なこととして、以下のようなこともできますので参考まで。
+引数について便利な使い方が色々とあります。
  * [[Python] *を用いて位置引数をタプル化する](http://www.yoheim.net/blog.php?q=20160609)
  * [[Python] **を用いたキーワード引数の辞書化](http://www.yoheim.net/blog.php?q=20160610)
