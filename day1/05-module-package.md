@@ -41,7 +41,8 @@ genius = get_genius()
         * \_\_init\_\_.py（空ファイルで良いが必須）
         * my_module1.py
         * my_module2.py  
-<br>
+
+
 mypackage以下のそれぞれのモジュールは以下の関数が定義されていることとしましょう。
 ```python
 # my_module1.py
