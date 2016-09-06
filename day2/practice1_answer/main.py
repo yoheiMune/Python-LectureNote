@@ -58,23 +58,6 @@ def gradient_decent(X, y, theta, alpha, iteration):
         # print(delta, theta)
         print("\t(%d)theta=%f" % (i+1, theta))
 
-    # %%% Vector Calcuration
-    # hypo = X * theta;
-    # delta = transpose(hypo - y) * X;
-    # theta = theta - (alpha / m) * transpose(delta);
-
-    # %%% Calcuration for each element
-    # % value_1 = 0;
-    # % value_2 = 0;
-    # % for i = 1:m
-    # %    value_1 = value_1 + (theta(1, 1) + theta(2, 1) * X(i, 2) - y(i, 1)) * X(i, 1);
-    # %     value_2 = value_2 + (theta(1, 1) + theta(2, 1) * X(i, 2) - y(i, 1)) * X(i, 2);
-    # % end
-    # % theta_1 = theta(1, 1) - alpha * value_1 / m;
-    # % theta_2 = theta(2, 1) - alpha * value_2 / m;
-    # % theta(1, 1) = theta_1;
-    # % theta(2, 1) = theta_2;
-
     return theta
 
 
