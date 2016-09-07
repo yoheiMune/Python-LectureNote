@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 
 def load_data():
     """データを読み込みます"""
-    data = [t.split(",") for t in open("../data.text").read().split("\n")]
+    data = [t.split(",") for t in open("../automobile_all.txt").read().split("\n")]
     data = [[int(d[0]), int(d[1])] for d in data]
     return data
 
@@ -31,6 +31,9 @@ def show_graph(data, h=None, theta=None):
         plt.draw()
     # TODO 軸のレンジ、軸の名前、ウィンドウの大きさ、プロットしたやつの色と形
     plt.ylabel('price')
+    plt.xlabel('engine-size')
+    plt.title('車の排気量と価格')
+    plt.axis([0, np.amax(x), 0, np.amax(y)])
     plt.show()
 
 def compute_cost(X, y, theta):
