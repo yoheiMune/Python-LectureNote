@@ -8,12 +8,8 @@ from pprint import pprint
 import numpy as np
 import matplotlib.pyplot as plt
 
-def load_data():
-    """データを読み込みます"""
-    return np.loadtxt("./automobile_all.txt", delimiter=",")
-
 def show_graph(X, Theta=None, hypothesis_func=None):
-    """グラフ表示"""
+    """グラフを表示します"""
     # データ
     plt.plot(X[:,0], X[:,1], "ro")
     plt.draw()    
@@ -32,84 +28,37 @@ def show_graph(X, Theta=None, hypothesis_func=None):
     plt.show()
 
 def compute_cost(X, Theta, hypothesis_func):
+    """コストを計算します"""
     m = X.shape[0]
-    x = X[:, 0]
-    x = np.c_[np.ones(len(x)),x]
-    y = X[:, 1]
+    x = np.c_[np.ones(m), X[:,0]]
+    y = X[:,1]
     return np.sum((hypothesis_func(x, Theta) - y) ** 2) / 2 / m
-    # cost = 0
-    # for i, x in enumerate(X):
-    #     pred = x * theta
-    #     real = y[i]
-    #     print(pred, real, (pred-real), math.pow(pred-real, 2))
-    #     cost += math.pow(pred - real, 2)
-    # cost = cost / (2*len(X))
-    # return cost
 
 def gradient_decent(X, Theta, hypothesis_func, alpha, iteration):
-
-    # 入力値（x0を追加）
+    """最急降下法でシータの最適化を行います"""
+    # サイズ、入力値、答え
     m = X.shape[0]
     x = X[:,0]
     x = np.c_[np.ones(len(x)), x]
-    # 答え
     y = X[:,1][:,None]
-
+    # フィッティング
     for i in range(iteration):
         hypo = hypothesis_func(x, Theta)
         delta = np.dot((hypo - y).T, x)
-        print('-----------')
-        # print(hypo.shape, y.shape, x.shape, delta.shape, Theta.shape)
         Theta = Theta - (alpha / m) * delta.T
+        print('-----------')
         print(Theta[0], Theta[1])
-
-
-        # hypo = X * theta;
-        # delta = transpose(hypo - y) * X;
-        # theta = theta - (alpha / m) * transpose(delta);
-
-
-
-
-
-
-
-
-
-
-        # print(x.shape, Theta.shape, hypothesis_func(x, Theta).shape)
-        # delta = np.sum(hypothesis_func(x, Theta) - y) * x / m
-        # print(np.sum(hypothesis_func(x, Theta) - y, axis=0))
-
-
-
-
-    
-    # for i in range(iteration):
-
-    #     delta = 0
-    #     for j, x in enumerate(X):
-    #         delta += (x*theta - y[j]) * x
-    #         # print((x*theta - y[i]) * x)
-    #     delta = delta / len(X)
-    #     theta = theta - alpha*delta
-    #     # print(delta, theta)
-    #     print("\t(%d)theta=%f" % (i+1, theta))
-
+    # 返却
     return Theta
 
 def hypothesis(x, Theta):
+    """目的関数です"""
     return np.dot(x,Theta)
-
 
 if __name__ == "__main__":
 
     # データ取得
     X = np.loadtxt("./automobile_all.txt", delimiter=",")
-    x = X[:, 0]
-    y = X[:, 1]
-    # x0を追加
-    x = np.c_[np.ones(len(x)), x]
 
     # 最適化する項目
     Theta = np.array([1, 10])[:,None]
@@ -133,56 +82,4 @@ if __name__ == "__main__":
 
     # データ表示（最適化後）
     show_graph(X, Theta=Theta, hypothesis_func=hypothesis)
-
-
-
-    # X = [d[0] for d in data]
-    # y = [d[1] for d in data]
-
-    # # グラフ表示
-    # show_graph(data)
-
-    # # 目的関数
-    # h = lambda x,theta:x*theta
-    # theta = 1
-    # show_graph(data, h, theta)
-
-    # # 初期コスト
-    # initial_cost = compute_cost(X, y, theta)
-    # print("initial_cost:", initial_cost)
-
-    # # 最適化
-    # alpha = 0.000001
-    # iteration = 500
-    # theta = gradient_decent(X, y, theta, alpha, iteration)
-    # print("theta_optimized=", theta)
-
-    # # 最適化後のコスト
-    # optimized_cost = compute_cost(X, y, theta)
-    # print("optimized_cost:", optimized_cost)
-
-    # # グラフ表示
-    # show_graph(data, h, theta)
-
-
-
-
-# b = 0で最適化
-##===============================
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
