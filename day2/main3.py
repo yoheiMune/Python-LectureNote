@@ -92,13 +92,13 @@ if __name__ == "__main__":
     # 項目数
     num_of_polynomial = 4
     # 正則化
-    lambda_ = 1
+    lambda_ = 100
     # 正規方程式を使うか
     use_normal_equation = True
 
     # データ取得
     X = np.loadtxt("./automobile_all.txt", delimiter=",")
-    X, ave, std = normalize(X)
+    # X, ave, std = normalize(X)
 
     # データを取り出す
     x = get_x(X[:, 0], num_of_polynomial)
