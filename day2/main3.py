@@ -90,9 +90,9 @@ if __name__ == "__main__":
 
     #--------------------- ハイパーパラメーター
     # 項目数
-    num_of_polynomial = 4
+    num_of_polynomial = 2
     # 正則化
-    lambda_ = 100
+    lambda_ = 0
     # 正規方程式を使うか
     use_normal_equation = True
 

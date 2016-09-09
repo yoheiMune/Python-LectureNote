@@ -14,6 +14,13 @@ def load_data():
     data = [[int(d[0]), int(d[1])] for d in data]
     return data
 
+def normalize(X):
+    """データを正規化します"""
+    ave = np.average(X, axis=0)
+    std = np.std(X, axis=0)
+    X_normalized = (X - ave) / std
+    return X_normalized, ave, std
+
 def show_graph(data, h=None, theta=None):
     """グラフ表示"""
     X = np.array(data)
@@ -68,15 +75,16 @@ if __name__ == "__main__":
 
     # データ取得
     data = load_data()
+    # data, ave, std = normalize(data)
     X = [d[0] for d in data]
     y = [d[1] for d in data]
 
     # グラフ表示
-    show_graph(data)
+    # show_graph(data)
 
     # 目的関数
     h = lambda x,theta:x*theta
-    theta = 1
+    theta = 10
     show_graph(data, h, theta)
 
     # 初期コスト
@@ -84,7 +92,7 @@ if __name__ == "__main__":
     print("initial_cost:", initial_cost)
 
     # 最適化
-    alpha = 0.000001
+    alpha = 0.00001
     iteration = 500
     theta = gradient_decent(X, y, theta, alpha, iteration)
     print("theta_optimized=", theta)
