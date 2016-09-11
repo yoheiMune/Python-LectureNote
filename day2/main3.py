@@ -42,8 +42,9 @@ def show_graph(X, Theta=None, hypothesis_func=None, num_of_polynomial=None):
     plt.ylabel('price')
     plt.xlabel('engine-size')
     plt.title('車の排気量と価格')
-    plt.axis([min_x-1, np.amax(X[:,0])+1, np.amin(X[:,1])-1, np.amax(X[:,1])+1])
+    plt.axis([min_x-.3, np.amax(X[:,0])+.3, np.amin(X[:,1])-.3, np.amax(X[:,1])+.3])
     # plt.axis([0, np.amax(X[:,0])+10, 0, np.amax(X[:,1])+1000])
+    # plt.axis([0, np.amax(X[:,0])+50, 0, np.amax(X[:,1]) + 5])
     # グラフ表示
     plt.show()
 
@@ -79,26 +80,26 @@ def hypothesis(x, Theta):
     return np.dot(x,Theta)
 
 def normal_equation(x, y, lambda_=0):
-    print("x.shape", x.shape)
     idnt = np.identity(x.shape[1])
-    print(idnt.shape)
     idnt[0] = 0
-    print(np.dot(x.T, x).shape)
-    return np.dot(np.dot(np.linalg.pinv(np.dot(x.T, x) + lambda_+idnt), x.T), y[:,None])
+    print("aaaa:\n",lambda_*idnt)
+    print("bbbb:\n",np.dot(x.T, x))
+    return np.dot(np.dot(np.linalg.pinv(np.dot(x.T, x) + lambda_*idnt), x.T), y[:,None])
 
 if __name__ == "__main__":
 
     #--------------------- ハイパーパラメーター
     # 項目数
-    num_of_polynomial = 2
+    num_of_polynomial = 11
     # 正則化
-    lambda_ = 0
+    lambda_ = 1.3
     # 正規方程式を使うか
     use_normal_equation = True
 
     # データ取得
-    X = np.loadtxt("./automobile_all.txt", delimiter=",")
-    # X, ave, std = normalize(X)
+    # X = np.loadtxt("./automobile_all.txt", delimiter=",")
+    X = np.loadtxt("./data.txt", delimiter=",")
+    X, ave, std = normalize(X)
 
     # データを取り出す
     x = get_x(X[:, 0], num_of_polynomial)
@@ -129,7 +130,7 @@ if __name__ == "__main__":
         Theta = normal_equation(x, y, lambda_)
     else:
         alpha = 0.00001 #4:0.0001 #5:0.0001, 6:0.00001
-        iteration = 1000
+        iteration = 5
         Theta = gradient_decent(x, y, Theta, hypothesis, alpha, iteration, lambda_)
     print(Theta)
 
