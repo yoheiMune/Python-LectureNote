@@ -6,9 +6,9 @@ import matplotlib.pyplot as plt
 
 
 def load_data():
-    """機会学習に利用するデータを読み込みます"""
+    """線形回帰に利用するデータを読み込みます"""
     X = np.loadtxt("./automobile.txt", delimiter=",")
-    return X.tolist()
+    return X.tolist(), X[:,0].tolist(), X[:,1].tolist()
 
 def show(data, x_vals=None, y_vals=None, Theta=None, hypothesis_func=None):
     """グラフ表示を行います"""
@@ -23,10 +23,6 @@ def show(data, x_vals=None, y_vals=None, Theta=None, hypothesis_func=None):
     # 回帰直線の表示
     if hypothesis_func:
         t  = np.arange(min_x, max_x, 0.01)
-        print(x_vals)
-        # num_of_polynomial = len(x_vals[0])
-        # num_of_polynomial = 1
-        # plt.plot(t, hypothesis_func(_get_x(t,num_of_polynomial).tolist(), Theta))
         plt.plot(t, hypothesis_func(t.tolist(), Theta))
         plt.draw()
     # グラフ設定
@@ -36,11 +32,3 @@ def show(data, x_vals=None, y_vals=None, Theta=None, hypothesis_func=None):
     plt.axis([min_x, max_x, min_y, max_y])
     # グラフ表示
     plt.show()
-
-
-def _get_x(x, num_of_polynomial):
-    """特徴Xを生成します"""
-    x_result = np.zeros((x.shape[0], num_of_polynomial))
-    for i in range(num_of_polynomial):
-        x_result[:,i] = np.array(x ** i)
-    return x_result

@@ -23,10 +23,6 @@ from pprint import pprint
 import numpy as np
 import common as cmn
 
-def make_data(data):
-    X = np.array(data)
-    return X[:,0].tolist(), X[:,1].tolist()
-
 def hypothesis(x_vals, Theta):
     """
         原点を通るように回帰直線を定義します。
@@ -114,9 +110,7 @@ if __name__ == "__main__":
     # 01. データを読み込む
     #---------------------------------------------
     # 今回利用するデータを読み込みます
-    data = cmn.load_data()
-    # 入力値と値を分離します
-    x_vals, y_vals = make_data(data)
+    data, x_vals, y_vals = cmn.load_data()
     # 上10件ほど、見てみましょう
     print('-----------------\n#今回利用するデータ（上10件）')
     pprint(data[:10])
@@ -135,15 +129,18 @@ if __name__ == "__main__":
     print('-----------------\n#回帰直線（最適化前）（上3件）')
     pprint(hypo[:3])
     # 以下の値が表示されればOKです
-    # [1300.0, 1300.0, 1520.0]
+    # [1310.0, 1310.0, 1530.0]
+
     # データと回帰直線をグラフに表示します
     cmn.show(data, x_vals, y_vals, Theta, hypothesis_func=hypothesis)
+    
     # 初期コストを計算します
     cost = compute_cost(x_vals, y_vals, Theta, hypothesis_func=hypothesis)
     print('-----------------\n# コスト（最適化前）')
     print("cost=", cost)
     # 以下の値が表示されればOKです
     # cost= 99903174.68905473
+
 
     # 03. 回帰直線の最適化（最急降下法）
     #---------------------------------------------
@@ -152,4 +149,32 @@ if __name__ == "__main__":
     Theta_optimized = gradient_descent(x_vals, y_vals, Theta, hypothesis, alpha, iteration)
     # 最適化後の状態をグラフに表示します
     cmn.show(data, x_vals, y_vals, Theta_optimized, hypothesis_func=hypothesis)
+
+
+    # 04. 最適化後
+    #---------------------------------------------
+    # 上位3件の予測結果を表示します（最適化後）
+    hypo = hypothesis(x_vals, Theta_optimized)
+    print('-----------------\n#回帰直線（最適化後）（上3件）')
+    pprint(hypo[:3])
+    # 以下の値が表示されればOKです
+    # [14319.03000935717, 14319.03000935717, 16740.5026091183]
+
+    # 最適化後のコスト
+    cost = compute_cost(x_vals, y_vals, Theta_optimized, hypothesis_func=hypothesis)
+    print('-----------------\n# コスト（最適化後）')
+    print("cost=", cost)
+    # 以下の値が表示されればOKです
+    # cost= 10575424.510240488
+
+
+
+
+
+
+
+
+
+
+
 
