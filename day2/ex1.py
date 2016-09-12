@@ -2,7 +2,7 @@
 # 線形回帰（線形）の演習
 #
 # [演習1]
-#　ここでは「y = ax」の原点を通る回帰曲線を用いて、線形回帰を実装します。
+#　ここでは「y = ax」の原点を通る回帰直線を用いて、線形回帰を実装します。
 #　（「y = ax + b」の形式はex2で扱います）。
 # 
 # [実装説明]
@@ -92,7 +92,7 @@ def gradient_descent(x_vals, y_vals, Theta, hypothesis_func, alpha, iteration):
     print('-----------------\n#最急降下法')
     m = len(x_vals)
     for i in range(iteration):
-        hypo = hypothesis(x_vals, Theta)
+        hypo = hypothesis_func(x_vals, Theta)
         delta = (1/m) * sum([(h-y)*x for h,x,y in zip(hypo,x_vals,y_vals)])
         Theta = Theta - alpha * delta
         cost = compute_cost(x_vals, y_vals, Theta, hypothesis_func)

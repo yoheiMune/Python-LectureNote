@@ -23,6 +23,7 @@ def show(data, x_vals=None, y_vals=None, Theta=None, hypothesis_func=None):
     # 回帰直線の表示
     if hypothesis_func:
         t  = np.arange(min_x, max_x, 0.01)
+        print(x_vals)
         # num_of_polynomial = len(x_vals[0])
         # num_of_polynomial = 1
         # plt.plot(t, hypothesis_func(_get_x(t,num_of_polynomial).tolist(), Theta))
