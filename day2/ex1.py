@@ -37,9 +37,7 @@ def hypothesis(x_vals, Theta):
     #
     # TODO この関数を実装して下さい
     #
-    # return -1
-    hypo = [x * Theta for x in x_vals]
-    return hypo
+    return [0] * len(x_vals)
 
 def compute_cost(x_vals, y_vals, Theta, hypothesis_func):
     """
@@ -59,11 +57,7 @@ def compute_cost(x_vals, y_vals, Theta, hypothesis_func):
     #
     # TODO この関数を実装して下さい
     #
-    # return -1
-    m = len(data)
-    hypo = hypothesis_func(x_vals, Theta)
-    cost = (1/2/m) * sum([(h-y)**2 for h, y in zip(hypo,y_vals)])
-    return cost
+    return 0
 
 def gradient_descent(x_vals, y_vals, Theta, hypothesis_func, alpha, iteration):
     """
@@ -85,15 +79,7 @@ def gradient_descent(x_vals, y_vals, Theta, hypothesis_func, alpha, iteration):
     #
     # TODO この関数を実装して下さい
     #
-    print('-----------------\n#最急降下法')
-    m = len(x_vals)
-    for i in range(iteration):
-        hypo = hypothesis_func(x_vals, Theta)
-        delta = (1/m) * sum([(h-y)*x for h,x,y in zip(hypo,x_vals,y_vals)])
-        Theta = Theta - alpha * delta
-        cost = compute_cost(x_vals, y_vals, Theta, hypothesis_func)
-        print("cost=%f, Theta=%f" % (cost, Theta))
-    return Theta
+    return 0
 
 
 if __name__ == "__main__":
@@ -119,18 +105,19 @@ if __name__ == "__main__":
     print('-----------------\n#原点を通る回帰直線（最適化前）（上3件）')
     pprint(hypo[:3])
     # 以下の値が表示されればOKです
-    # [1300.0, 1300.0, 1520.0]
+    print("should be:", [1300.0, 1300.0, 1520.0])
     # データと回帰直線をグラフに表示します
     cmn.show(data, x_vals, y_vals, Theta, hypothesis_func=hypothesis)
     # 初期コストを計算します
     cost = compute_cost(x_vals, y_vals, Theta, hypothesis_func=hypothesis)
-    print('-----------------\n# コスト（最適化前）')
+    print('-----------------\n#コスト（最適化前）')
     print("cost=", cost)
     # 以下の値が表示されればOKです
-    # cost= 99903174.68905473
+    print("should be:", 99903174.68905473)
 
     # 03. 回帰直線の最適化（最急降下法）
     #---------------------------------------------
+    print('-----------------\n#最急降下法')
     alpha = 0.00001
     iteration = 50
     Theta_optimized = gradient_descent(x_vals, y_vals, Theta, hypothesis, alpha, iteration)
@@ -145,11 +132,11 @@ if __name__ == "__main__":
     print('-----------------\n#回帰直線（最適化後）（上3件）')
     pprint(hypo[:3])
     # 以下の値が表示されればOKです
-    # [14318.303118744798, 14318.303118744798, 16741.4005696093]
+    print("should be:", [14318.303118744798, 14318.303118744798, 16741.4005696093])
 
     # 最適化後のコスト
     cost = compute_cost(x_vals, y_vals, Theta_optimized, hypothesis_func=hypothesis)
-    print('-----------------\n# コスト（最適化後）')
+    print('-----------------\n#コスト（最適化後）')
     print("cost=", cost)
     # 以下の値が表示されればOKです
-    # cost= 10567489.798670523
+    print("should be:", 10567489.798670523)
