@@ -3,8 +3,8 @@
 内容はday1とday2にわかれていますので、それぞれご参照ください。
 
 ## 講義内容
-day1: Pythonの基礎〜Webスクレイピングまで
+day1: Pythonの基礎〜Webスクレイピングまで  
 https://github.com/yoheiMune/Python-LectureNote/tree/master/day1
 
-day2: 機械学習の基礎とPython演習
+day2: 機械学習の基礎とPython演習  
 https://github.com/yoheiMune/Python-LectureNote/tree/master/day2
