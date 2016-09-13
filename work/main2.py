@@ -35,7 +35,7 @@ def compute_cost(X, Theta, hypothesis_func):
     return np.sum((hypothesis_func(x, Theta) - y) ** 2) / 2 / m
 
 def gradient_decent(X, Theta, hypothesis_func, alpha, iteration):
-    """最急降下法でシータの最適化を行います"""
+    """勾配降下法でシータの最適化を行います"""
     # サイズ、入力値、答え
     m = X.shape[0]
     x = X[:,0]

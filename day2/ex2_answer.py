@@ -9,7 +9,7 @@
 # 以下3つの関数を実装して、完成させてください。
 #   ・hypothesis : 仮説関数の実装
 #   ・compute_cost：コスト関数の実装
-#   ・gradient_descent：最急降下法の実装
+#   ・gradient_descent：勾配降下法の実装
 # 
 # [注意]
 # 今回は、Thetaが配列となります（Theta0とTheta1の値を持つ）。
@@ -70,7 +70,7 @@ def compute_cost(x_vals, y_vals, Theta, hypothesis_func):
 
 def gradient_descent(x_vals, y_vals, Theta, hypothesis_func, alpha, iteration):
     """
-        最急降下法を用いて、最適化を行います
+        勾配降下法を用いて、最適化を行います
 
         引数で与えられた内容をもとに、予測モデルのコストを計算して返却します。
 
@@ -80,7 +80,7 @@ def gradient_descent(x_vals, y_vals, Theta, hypothesis_func, alpha, iteration):
             Theta           : パラメータ（[10,10]などの配列）
             hypothesis_func : 仮説関数
             alpha           : Thetaを変化させる量を調整するパラメータ
-            iteration       : 最急降下法を実施する回数
+            iteration       : 勾配降下法を実施する回数
 
         返却値：
             最適化後のTheta値（配列で返却する）
@@ -143,9 +143,9 @@ if __name__ == "__main__":
     print("should be:", 99783840.95771144)
 
 
-    # 03. 回帰直線の最適化（最急降下法）
+    # 03. 回帰直線の最適化（勾配降下法）
     #---------------------------------------------
-    print('-----------------\n#最急降下法')
+    print('-----------------\n#勾配降下法')
     alpha = 0.00001
     iteration = 50
     Theta_optimized = gradient_descent(x_vals, y_vals, Theta, hypothesis, alpha, iteration)
