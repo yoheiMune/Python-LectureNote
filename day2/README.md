@@ -1,6 +1,9 @@
 # 機械学習 x Python
 ここでは、線形回帰アルゴリズムを題材に、機械学習の基礎を学びつつ、それをPythonで実装します。
 
+## 講義資料
+https://speakerdeck.com/yoheimune/machine-learning-basic-and-python
+
 ## 前提パッケージ
 以下2つのパッケージを利用しますので、`pip`でインストールしてください。
 ```
